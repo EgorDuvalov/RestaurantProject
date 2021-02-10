@@ -1,7 +1,6 @@
 package com.innowise.duvalov.dao.impl;
 
 import com.innowise.duvalov.dao.AdminDAO;
-import com.innowise.duvalov.entity.Client;
 import com.innowise.duvalov.entity.Order;
 import com.innowise.duvalov.pool.ConnectionPool;
 

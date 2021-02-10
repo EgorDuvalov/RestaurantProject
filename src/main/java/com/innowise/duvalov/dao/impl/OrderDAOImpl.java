@@ -55,7 +55,7 @@ public class OrderDAOImpl implements OrderDAO {
                 order.setId(rs.getInt("id"));
                 order.setBill(rs.getDouble("bill"));
                 order.setStatus(rs.getBoolean("status"));
-                order.setUserId(rs.getInt("user_id"));
+                order.setUserId(rs.getInt("client_id"));
                 order.setTime(rs.getTime("time"));
             }
         } catch (SQLException e) {

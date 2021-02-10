@@ -21,7 +21,7 @@ public class Order implements Serializable {
         return "Order{" +
                 "id=" + id +
                 ", status=" + status +
-                ", user_id=" + userId +
+                ", client_id=" + userId +
                 ", bill=" + bill +
                 ", time=" + time +
                 '}';

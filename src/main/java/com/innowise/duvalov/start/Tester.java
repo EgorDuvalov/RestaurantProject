@@ -11,10 +11,12 @@ public class Tester {
     public static void main(String[] args) throws SQLException {
         ConnectionPool.INSTANCE.openPool();
         Connection connection = ConnectionPool.INSTANCE.getConnection();
-        PreparedStatement ps = connection.prepareStatement("select * from users where id = 1");
+        PreparedStatement ps = connection.prepareStatement("select id from users where name = ?");
+        String name = "John";
+        ps.setString(1, name);
         ResultSet rs = ps.executeQuery();
-        while(rs.next()){
-            System.out.println(rs.getString("name"));
+        while (rs.next()) {
+            System.out.println(rs.getInt("id"));
         }
     }
 }
