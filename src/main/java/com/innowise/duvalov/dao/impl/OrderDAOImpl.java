@@ -2,7 +2,6 @@ package com.innowise.duvalov.dao.impl;
 
 import com.innowise.duvalov.dao.OrderDAO;
 import com.innowise.duvalov.entity.Order;
-import com.innowise.duvalov.entity.User;
 import com.innowise.duvalov.pool.ConnectionPool;
 import org.apache.log4j.Logger;
 
@@ -18,7 +17,7 @@ public class OrderDAOImpl implements OrderDAO {
     private static final String GET_ORDER = "select * from orders where id = ?";
 
     @Override
-    public void setOrder(Order order) {
+    public void orderToDB(Order order) {
         Connection connection = ConnectionPool.INSTANCE.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(addOrder)) {
             ps.setInt(1, order.getId());
@@ -34,7 +33,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public Order getOrder(int id) {
+    public Order orderFromDB(int id) {
         Connection connection = ConnectionPool.INSTANCE.getConnection();
         Order order = null;
         try (PreparedStatement ps = connection.prepareStatement(GET_ORDER)) {

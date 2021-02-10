@@ -15,7 +15,7 @@ public class Runner {
         ConnectionPool.INSTANCE.openPool();
         Connection connection = ConnectionPool.INSTANCE.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(TAKE_ALL_USERS)) {
-            User user = new UserDAOImpl().getUser(1);
+            User user = new UserDAOImpl().userFromDB(1);
             System.out.println(user);
         } catch (SQLException throwables) {
             throwables.printStackTrace();

@@ -19,7 +19,7 @@ public class MealDAOImpl implements MealDAO {
 
 
     @Override
-    public void setMeal(Meal meal) {
+    public void mealToDB(Meal meal) {
         Connection connection = ConnectionPool.INSTANCE.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(ADD_MEAL)) {
             ps.setInt(1, meal.getId());
@@ -33,7 +33,7 @@ public class MealDAOImpl implements MealDAO {
     }
 
     @Override
-    public Meal getMeal(int id) {
+    public Meal mealFromDB(int id) {
         Connection connection = ConnectionPool.INSTANCE.getConnection();
         Meal meal = null;
         try (PreparedStatement ps = connection.prepareStatement(GET_MEAL)) {

@@ -34,6 +34,7 @@ public class AdminDAOImpl extends UserDAOImpl implements AdminDAO {
 
     private void confirmOrder() {
         order.setStatus(order.getBill() < MAX_BILL);
+        //sending to kitchen
     }
 
     private void calculateBill() {

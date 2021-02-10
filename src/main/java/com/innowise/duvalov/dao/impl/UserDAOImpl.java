@@ -20,7 +20,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     //TODO synchronization between id in db and in obj
-    public void setUser(User user) {
+    public void userToDB(User user) {
         Connection connection = ConnectionPool.INSTANCE.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(ADD_USER)) {
             ps.setInt(1, user.getId());
@@ -34,7 +34,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User getUser(int id) {
+    public User userFromDB(int id) {
         Connection connection = ConnectionPool.INSTANCE.getConnection();
         User user = null;
         try (PreparedStatement ps = connection.prepareStatement(GET_USER)) {

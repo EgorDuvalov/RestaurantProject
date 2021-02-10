@@ -10,7 +10,7 @@ public class UserDAOImplTest {
     public void testAddAndGetUser() {
         ConnectionPool.INSTANCE.openPool();
         User expectedUser = createUser(1, "John", "Client");
-        User returnedUser = new UserDAOImpl().getUser(1);
+        User returnedUser = new UserDAOImpl().userFromDB(1);
         Assert.assertEquals(expectedUser, returnedUser);
         ConnectionPool.INSTANCE.closePool();
     }

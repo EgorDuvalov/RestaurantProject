@@ -1,6 +1,5 @@
 package com.innowise.duvalov.dao.impl;
 
-import com.innowise.duvalov.dao.OrderDAO;
 import com.innowise.duvalov.entity.Order;
 import com.innowise.duvalov.pool.ConnectionPool;
 import org.junit.Assert;
@@ -14,7 +13,7 @@ public class OrderDAOImplTest {
         ConnectionPool.INSTANCE.openPool();
         Time time = new Time(00,00,00);
         Order expectedOrder = createOrder(1, 4.5, 1, true, time);
-        Order returnedOrder = new OrderDAOImpl().getOrder(1);
+        Order returnedOrder = new OrderDAOImpl().orderFromDB(1);
         ConnectionPool.INSTANCE.closePool();
         Assert.assertEquals(expectedOrder, returnedOrder);
     }
