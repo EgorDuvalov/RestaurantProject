@@ -15,7 +15,7 @@ import java.util.List;
 public class UserDAOImpl implements UserDAO {
     private static final Logger LOGGER = Logger.getLogger(UserDAOImpl.class);
 
-    private static final String ADD_USER = "insert into users values (?,?,?)";
+    private static final String ADD_USER = "insert into users (name, role) values (?,?)";
     private static final String GET_USER = "select * from users where id = ?";
 
     @Override
@@ -23,9 +23,8 @@ public class UserDAOImpl implements UserDAO {
     public void userToDB(User user) {
         Connection connection = ConnectionPool.INSTANCE.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(ADD_USER)) {
-            ps.setInt(1, user.getId());
-            ps.setString(2, user.getName());
-            ps.setString(3, user.getRole());
+            ps.setString(1, user.getName());
+            ps.setString(2, user.getRole());
             ps.executeUpdate();
             connection.close();
         } catch (SQLException e) {

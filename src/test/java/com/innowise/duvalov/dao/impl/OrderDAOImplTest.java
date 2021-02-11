@@ -11,7 +11,7 @@ public class OrderDAOImplTest {
     @Test
     public void testAddAndGetOrder() {
         ConnectionPool.INSTANCE.openPool();
-        Time time = new Time(00,00,00);
+        Time time = new Time(0, 0,0);
         Order expectedOrder = createOrder(1, 4.5, 1, true, time);
         Order returnedOrder = new OrderDAOImpl().orderFromDB(1);
         ConnectionPool.INSTANCE.closePool();

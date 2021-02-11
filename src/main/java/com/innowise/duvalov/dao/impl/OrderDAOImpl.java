@@ -13,18 +13,17 @@ import java.sql.SQLException;
 public class OrderDAOImpl implements OrderDAO {
     private static final Logger LOGGER = Logger.getLogger(UserDAOImpl.class);
 
-    private static final String addOrder = "insert into orders values (?,?,?,?,?)";
+    private static final String addOrder = "insert into orders(status, client_id, bill, time) values (?,?,?,?)";
     private static final String GET_ORDER = "select * from orders where id = ?";
 
     @Override
     public void orderToDB(Order order) {
         Connection connection = ConnectionPool.INSTANCE.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(addOrder)) {
-            ps.setInt(1, order.getId());
-            ps.setBoolean(2, order.getStatus());
-            ps.setInt(3, order.getUserId());
-            ps.setDouble(4, order.getBill());
-            ps.setTime(5, order.getTime());
+            ps.setBoolean(1, order.getStatus());
+            ps.setInt(2, order.getUserId());
+            ps.setDouble(3, order.getBill());
+            ps.setTime(4, order.getTime());
             ps.executeUpdate();
             connection.close();
         } catch (SQLException e) {

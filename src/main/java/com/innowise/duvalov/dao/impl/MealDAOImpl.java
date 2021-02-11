@@ -14,7 +14,7 @@ public class MealDAOImpl implements MealDAO {
     private static final Logger LOGGER = Logger.getLogger(UserDAOImpl.class);
 
 
-    private static final String ADD_MEAL = "insert into menu values (?,?,?)";
+    private static final String ADD_MEAL = "insert into menu (name, price) values (?,?)";
     private static final String GET_MEAL = "select * from menu where id = ?";
 
 
@@ -22,9 +22,8 @@ public class MealDAOImpl implements MealDAO {
     public void mealToDB(Meal meal) {
         Connection connection = ConnectionPool.INSTANCE.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(ADD_MEAL)) {
-            ps.setInt(1, meal.getId());
-            ps.setString(2, meal.getName());
-            ps.setDouble(3, meal.getPrice());
+            ps.setString(1, meal.getName());
+            ps.setDouble(2, meal.getPrice());
             ps.executeUpdate();
             connection.close();
         } catch (SQLException e) {
