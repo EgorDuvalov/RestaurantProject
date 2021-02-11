@@ -1,10 +1,15 @@
 package com.innowise.duvalov.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.sql.Time;
 import java.util.Objects;
-//import javax.persistence.Entity;
+import javax.persistence.Entity;
 
-//@Entity
+@Entity
+@Getter
+@Setter
 public class Order {
     private int id;
     private boolean status;
@@ -13,46 +18,6 @@ public class Order {
     private Time time;
 
     public Order() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public double getBill() {
-        return bill;
-    }
-
-    public void setBill(double bill) {
-        this.bill = bill;
-    }
-
-    public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
     }
 
     @Override

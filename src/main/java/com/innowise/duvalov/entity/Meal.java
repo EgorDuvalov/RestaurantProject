@@ -1,39 +1,20 @@
 package com.innowise.duvalov.entity;
 
-import java.util.Objects;
-//import javax.persistence.Entity;
+import lombok.Getter;
+import lombok.Setter;
 
-//@Entity
+import java.util.Objects;
+import javax.persistence.Entity;
+
+@Entity
+@Getter
+@Setter
 public class Meal{
     private int id;
     private String name;
     private double price;
 
     public Meal() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     @Override

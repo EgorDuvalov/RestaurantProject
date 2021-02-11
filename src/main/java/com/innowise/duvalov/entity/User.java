@@ -1,42 +1,23 @@
 package com.innowise.duvalov.entity;
 
-import java.util.Objects;
-//import javax.persistence.Entity;
+import lombok.Getter;
+import lombok.Setter;
 
-//@Entity
+import java.util.Objects;
+import javax.persistence.Entity;
+
+@Entity
+@Setter
+@Getter
 public class User {
 
     private int id;
     private String name;
-    private String role;
-
+    private Role role;
+    private String password;
 
     public User() {
-    }
 
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     @Override
