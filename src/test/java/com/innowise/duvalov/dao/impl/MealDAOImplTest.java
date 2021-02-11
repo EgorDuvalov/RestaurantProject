@@ -10,7 +10,7 @@ public class MealDAOImplTest {
     @Test
     public void testAddAndGetMeal() {
         ConnectionPool.INSTANCE.openPool();
-        Meal expectedMeal = createMeal(1, "Apple Juice", 2.0);
+        Meal expectedMeal = createMeal(1, "Apple Juice", 12.2);
         Meal returnedMeal = new MealDAOImpl().mealFromDB(1);
         Assert.assertEquals(expectedMeal, returnedMeal);
         ConnectionPool.INSTANCE.closePool();

@@ -20,7 +20,7 @@ public class OrderDAOImpl implements OrderDAO {
     public void orderToDB(Order order) {
         Connection connection = ConnectionPool.INSTANCE.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(addOrder)) {
-            ps.setBoolean(1, order.getStatus());
+            ps.setBoolean(1, order.isStatus());
             ps.setInt(2, order.getUserId());
             ps.setDouble(3, order.getBill());
             ps.setTime(4, order.getTime());
