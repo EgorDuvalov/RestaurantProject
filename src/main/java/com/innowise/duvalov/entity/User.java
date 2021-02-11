@@ -1,11 +1,10 @@
 package com.innowise.duvalov.entity;
 
-import java.io.Serializable;
 import java.util.Objects;
 //import javax.persistence.Entity;
 
 //@Entity
-public class User implements Serializable {
+public class User {
 
     private int id;
     private String name;
