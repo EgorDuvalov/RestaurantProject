@@ -25,7 +25,7 @@ public class Order {
         return "Order{" +
                 "id=" + id +
                 ", status=" + status +
-                ", client_id=" + userId +
+                ", user_id=" + userId +
                 ", bill=" + bill +
                 ", time=" + time +
                 '}';
